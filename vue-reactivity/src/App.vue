@@ -4,7 +4,10 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <h1>oil up banana bread or DIE</h1>
+    <h1>
+      id rather take ap literature and composition than eat this ur banan bread is so bad make
+      moisture, sweetness, etc meters food combination bonuses?
+    </h1>
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Hdsufhdigdsg</RouterLink>
