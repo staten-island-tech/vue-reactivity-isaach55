@@ -1,6 +1,10 @@
 <template>
   <div>
-    <SliderComponent v-for="ingredient in ingredients" :key="ingredient.name" :ingredient="ingredient" />
+    <SliderComponent
+      v-for="ingredient in ingredients"
+      :key="ingredient.name"
+      :ingredient="ingredient"
+    />
   </div>
 </template>
 
@@ -11,11 +15,12 @@ import SliderComponent from './SliderComponent.vue'
 const ingredients = reactive([
   {
     name: 'Flour',
-    min: 150,
+    min: 100,
     max: 550,
     moistureMultiplier: -1,
     sweetMultiplier: 0,
     oil: 0,
+    excessive: 325,
     message: 'this is going to be so dry are you making banana bread or mixing concrete',
   },
   {
@@ -25,43 +30,39 @@ const ingredients = reactive([
     moistureMultiplier: 0.5,
     sweetMultiplier: 0.25,
     oil: 0,
-    message: "is there even going to be any bread in this banana bread?",
+    excessive: 500,
+    message:
+      'is there even going to be any bread in this banana bread? this is banana with a side of bread',
   },
   {
     name: 'Egg',
     min: 50,
-    max: 150,
+    max: 200,
     moistureMultiplier: 1,
     sweetMultiplier: 0,
     oil: 0,
+    excessive: 125,
     message: 'that many eggs? in this economy?',
   },
   {
     name: 'Butter',
     min: 40,
-    max: 140,
+    max: 180,
     moistureMultiplier: 0,
     sweetMultiplier: 0,
-    oil: 0,
+    oil: 3,
+    excessive: 130,
     message: 'your banana bread is going to be so oily the US military would drill in it',
   },
   {
     name: 'Sugar',
-    min: 50,
-    max: 250,
+    min: 60,
+    max: 240,
     moistureMultiplier: -0.5,
     sweetMultiplier: 1,
     oil: 0,
+    excessive: 160,
     message: 'the sugar... why?',
-  },
-  {
-    name: 'Milk',
-    min: 200,
-    max: 500,
-    moistureMultiplier: 2,
-    sweetMultiplier: 0,
-    oil: 0,
-    message: 'you got some banana in your milk bread',
   },
   {
     name: 'Vanilla Extract',
@@ -78,13 +79,13 @@ const ingredients = reactive([
 all p flour, bread flour? -> this is so dry are you making banana bread or mixing concrete
 egg -> that much egg? in this economy?
 vanilla -> thats a lot of vanilla relax
-sugar -> 
+sugar ->
 honey ->      }}} if sweetness > something -> erm thats kind of a lot of sugar ERM thats kind of a LOT of sugar ERM THATS A LOT OF SuGAR
 maple syrup ->
 butter / oil -> your banana bread is so oily the united states military would drill in it
 chocolate chips -> uhhh you got some banana in your chocolate bread thats more chocolate chips than samantha has hairs on her head
-cinnamon -> 
-milk -> 
+cinnamon ->
+milk ->
 salt -> this is almost as salty as you would be if you had Samantha as a teammate
 baking powder -> put any more and this banana bread will be bigger than even samanthas forehead
 
