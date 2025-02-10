@@ -1,82 +1,44 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import IngredientsArray from './components/icons/IngredientsArray.vue';
 </script>
 
 <template>
   <header>
+    <div>
     <h1>
-      id rather take ap literature and composition than eat this ur banan bread is so bad make
-      moisture, sweetness, etc meters food combination bonuses?
+      Make some banana bread except I'm too lazy to provide a visual! You get friendly and constructive criticism here: :D
     </h1>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Hdsufhdigdsg</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    <p>Most recent feedback:</p>
     </div>
+    <div class="wrapper">
+    </div>
+    <IngredientsArray />
+    <h1>5 BIG BOOMS! BOOM BOOM BOOM BOOM BOOM</h1>
+    <h1>boom shakalaka yes god</h1>
   </header>
 </template>
 
 <style scoped>
 header {
+  display: flex;
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
+  box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
+    width: 100%;
   }
 
   header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+    width: 100%;
   }
 }
 </style>

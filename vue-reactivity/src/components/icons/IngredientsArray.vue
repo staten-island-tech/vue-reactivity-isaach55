@@ -1,16 +1,14 @@
 <template>
   <div>
-    <SliderComponent></SliderComponent>
-    v-for="ingredient in ingredients" :key="ingredient.name" :ingredient="ingredient"
-    @update="updateIngredient">
+    <SliderComponent v-for="ingredient in ingredients" :key="ingredient.name" :ingredient="ingredient" />
   </div>
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
-import { sliderComponent } from './SliderComponent.vue'
+import { reactive } from 'vue'
+import SliderComponent from './SliderComponent.vue'
 
-const ingredients = ref([
+const ingredients = reactive([
   {
     name: 'Flour',
     min: 150,
@@ -27,7 +25,7 @@ const ingredients = ref([
     moistureMultiplier: 0.5,
     sweetMultiplier: 0.25,
     oil: 0,
-    message: "atp there isn't going to be any bread in your banana bread",
+    message: "is there even going to be any bread in this banana bread?",
   },
   {
     name: 'Egg',
@@ -45,16 +43,16 @@ const ingredients = ref([
     moistureMultiplier: 0,
     sweetMultiplier: 0,
     oil: 0,
-    message: 'your banana bread is so oily the US military would drill in it',
+    message: 'your banana bread is going to be so oily the US military would drill in it',
   },
   {
     name: 'Sugar',
     min: 50,
     max: 250,
     moistureMultiplier: -0.5,
-    sweetMultiplier: 0,
+    sweetMultiplier: 1,
     oil: 0,
-    message: 'thats a lot of sugar!!!!!',
+    message: 'the sugar... why?',
   },
   {
     name: 'Milk',
@@ -72,7 +70,7 @@ const ingredients = ref([
     moistureMultiplier: 2,
     sweetMultiplier: 0,
     oil: 0,
-    message: 'you got some banana in your milk bread',
+    message: 'this is not a normal amount of vanilla.',
   },
 ])
 
@@ -92,6 +90,11 @@ baking powder -> put any more and this banana bread will be bigger than even sam
 
 winnie holding a gun to your head name 5 things that you could have done better just hand over the banana bread already
 the only person that could make banana bread worse than this is samantha
+id rather take ap literature and composition than eat this banana bread
+
+THIS BANANA BREAD GETS 1-5 BIG BOOMS! BOOM BOOM BOOM BOOM BOOM
+
+Verdict:
 
 IDEAS:
 sliders, interactive feedback?
