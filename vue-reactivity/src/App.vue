@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div>
+    <div id="testDiv">
       <h1>
         Make some banana bread except I'm too lazy to provide a visual! You get friendly and
         constructive criticism here: :D
@@ -8,7 +8,7 @@
       <p>Most recent feedback:</p>
     </div>
     <IngredientsArray />
-    <h1>5 BIG BOOMS! BOOM BOOM BOOM BOOM BOOM</h1>
+    <h1>5 BIG BOOMS! BOOM BOOM BOOM BOOM BOOM donkey kong ah color scheme</h1>
   </header>
 </template>
 
@@ -23,13 +23,22 @@ header {
   max-height: 100vh;
   width: 100%;
   box-sizing: border-box;
+  background-color: #80644A;
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
-    place-items: center;
+    align-items: center;
     width: 100%;
   }
+}
+
+#testDiv {
+  box-sizing: border-box;
+  border-radius: 1vw;
+  height: 90vh;
+  background-color: #735940;
+  color: white;
 }
 </style>

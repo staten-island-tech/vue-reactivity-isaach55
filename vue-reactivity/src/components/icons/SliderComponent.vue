@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="slider">
     <label> {{ ingredient.name }}: {{ itemAmount }} grams</label>
     <input type="range" :min="ingredient.min" :max="ingredient.max" v-model="itemAmount" step="1" />
     <button @click="takeSliderValue">Use</button>
@@ -11,15 +11,27 @@
 import { defineProps, ref } from 'vue'
 
 const props = defineProps({ ingredient: Object })
-let itemAmount = ref(props.ingredient.min)
+const itemAmount = ref(props.ingredient.min)
+const message = ref("")
 if (props.ingredient.amount) {
   itemAmount.value = ref(props.ingredient.amount)
 }
-const usedValue = ref(0)
+const usedValue = ref(props.ingredient.min)
 function takeSliderValue() {
   usedValue.value = itemAmount.value
-  //if usedValue.value > ref(props.ingredient.excessive)
+  if (usedValue.value > props.ingredient.excessive) {
+    message.value = props.ingredient.message
+    console.log(message)
+  } 
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.slider {
+  background-color: #EEE3AB;
+  box-sizing: border-box;
+  padding: 1vw;
+  margin: 1vw 0;
+  border-radius: 1vw;
+}
+</style>

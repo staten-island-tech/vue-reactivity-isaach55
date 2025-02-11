@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="sliderContainer">
     <SliderComponent
       v-for="ingredient in ingredients"
       :key="ingredient.name"
@@ -71,6 +71,7 @@ const ingredients = reactive([
     moistureMultiplier: 2,
     sweetMultiplier: 0,
     oil: 0,
+    excessive: 12,
     message: 'this is not a normal amount of vanilla.',
   },
 ])
@@ -102,4 +103,13 @@ sliders, interactive feedback?
 */
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+  #sliderContainer {
+    box-sizing: border-box;
+    background-color: #A77E58;
+    padding: 0 1vw;
+    border-radius: 1vw;
+    margin: 2vw;
+    height: 90vh;
+  }
+</style>
