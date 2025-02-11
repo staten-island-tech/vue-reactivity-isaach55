@@ -11,6 +11,7 @@
 <script setup>
 import { ref, reactive, defineProps } from 'vue'
 
+//you need to add to an array, so for results, make an array here?
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

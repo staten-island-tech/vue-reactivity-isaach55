@@ -104,12 +104,12 @@ sliders, interactive feedback?
 </script>
 
 <style scoped>
-  #sliderContainer {
-    box-sizing: border-box;
-    background-color: #A77E58;
-    padding: 0 1vw;
-    border-radius: 1vw;
-    margin: 2vw;
-    height: 90vh;
-  }
+#sliderContainer {
+  box-sizing: border-box;
+  background-color: #d9ae61;
+  padding: 0 1vw;
+  border-radius: 1vw;
+  margin: 2vw;
+  height: 90vh;
+}
 </style>

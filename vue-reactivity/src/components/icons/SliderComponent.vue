@@ -12,7 +12,7 @@ import { defineProps, ref } from 'vue'
 
 const props = defineProps({ ingredient: Object })
 const itemAmount = ref(props.ingredient.min)
-const message = ref("")
+const message = ref('')
 if (props.ingredient.amount) {
   itemAmount.value = ref(props.ingredient.amount)
 }
@@ -22,16 +22,17 @@ function takeSliderValue() {
   if (usedValue.value > props.ingredient.excessive) {
     message.value = props.ingredient.message
     console.log(message)
-  } 
+  }
 }
 </script>
 
 <style scoped>
 .slider {
-  background-color: #EEE3AB;
+  background-color: #eee3ab;
   box-sizing: border-box;
   padding: 1vw;
   margin: 1vw 0;
   border-radius: 1vw;
+  flex-direction: column;
 }
 </style>
