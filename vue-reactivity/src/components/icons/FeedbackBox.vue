@@ -1,17 +1,23 @@
 <template>
-  <div>
+  <div id="feedbackContainer">
     <h1>
       Make some banana bread except I'm too lazy to provide a visual! You get friendly and
       constructive feedback here: :D
     </h1>
-    <p>Your most recent feedback: {{ message }}</p>
+    <br>
+    <h2>Your most recent feedback: {{ feedbackText }} </h2>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, defineProps } from 'vue'
+import { ref, defineProps } from 'vue';
 
-//you need to add to an array, so for results, make an array here?
+const props = defineProps({ feedbackText: String });
+
 </script>
 
-<style scoped></style>
+<style scoped>
+#feedbackContainer {
+  color: white;
+}
+</style>

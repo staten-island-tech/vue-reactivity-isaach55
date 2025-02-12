@@ -8,20 +8,20 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue'
+import { defineProps, ref, defineEmits } from 'vue'
 
-const props = defineProps({ ingredient: Object })
-const itemAmount = ref(props.ingredient.min)
-const message = ref('')
+const props = defineProps({ ingredient: Object });
+const emit = defineEmits(["updateMessage"]);
+const itemAmount = ref(props.ingredient.min);
 if (props.ingredient.amount) {
-  itemAmount.value = ref(props.ingredient.amount)
+  itemAmount.value = props.ingredient.amount;
 }
-const usedValue = ref(props.ingredient.min)
+const usedValue = ref(props.ingredient.min);
 function takeSliderValue() {
-  usedValue.value = itemAmount.value
+  usedValue.value = itemAmount.value;
   if (usedValue.value > props.ingredient.excessive) {
-    message.value = props.ingredient.message
-    console.log(message)
+    console.log("Emitting feedback:", props.ingredient.message);
+    emit("updateMessage", props.ingredient.message);
   }
 }
 </script>

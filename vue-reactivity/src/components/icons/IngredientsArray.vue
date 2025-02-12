@@ -4,14 +4,19 @@
       v-for="ingredient in ingredients"
       :key="ingredient.name"
       :ingredient="ingredient"
+      @updateMessage="forwardFeedback"
     />
   </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
-import SliderComponent from './SliderComponent.vue'
+import { reactive, defineEmits } from 'vue';
+import SliderComponent from './SliderComponent.vue';
 
+const emit = defineEmits();
+function forwardFeedback(message) {
+  emit("updateMessage", message);
+}
 const ingredients = reactive([
   {
     name: 'Flour',
@@ -74,7 +79,7 @@ const ingredients = reactive([
     excessive: 12,
     message: 'this is not a normal amount of vanilla.',
   },
-])
+]);
 
 /*banana
 all p flour, bread flour? -> this is so dry are you making banana bread or mixing concrete
