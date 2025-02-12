@@ -1,21 +1,23 @@
 <template>
-  <div id="sliderContainer">
-    <SliderComponent
-      v-for="ingredient in ingredients"
-      :key="ingredient.name"
-      :ingredient="ingredient"
-      @updateMessage="forwardFeedback"
-    />
+  <div id="sliderContainerOuter">
+    <div id="sliderContainerInner">
+      <SliderComponent
+        v-for="ingredient in ingredients"
+        :key="ingredient.name"
+        :ingredient="ingredient"
+        @updateMessage="forwardFeedback"
+      />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, defineEmits } from 'vue';
-import SliderComponent from './SliderComponent.vue';
+import { reactive, defineEmits } from 'vue'
+import SliderComponent from './SliderComponent.vue'
 
-const emit = defineEmits();
+const emit = defineEmits()
 function forwardFeedback(message) {
-  emit("updateMessage", message);
+  emit('updateMessage', message)
 }
 const ingredients = reactive([
   {
@@ -66,7 +68,7 @@ const ingredients = reactive([
     moistureMultiplier: -0.5,
     sweetMultiplier: 1,
     oil: 0,
-    excessive: 160,
+    excessive: 140,
     message: 'the sugar... why?',
   },
   {
@@ -79,7 +81,7 @@ const ingredients = reactive([
     excessive: 12,
     message: 'this is not a normal amount of vanilla.',
   },
-]);
+])
 
 /*banana
 all p flour, bread flour? -> this is so dry are you making banana bread or mixing concrete
@@ -109,12 +111,19 @@ sliders, interactive feedback?
 </script>
 
 <style scoped>
-#sliderContainer {
+#sliderContainerOuter {
   box-sizing: border-box;
   background-color: #d9ae61;
-  padding: 0 1vw;
   border-radius: 1vw;
   margin: 2vw;
+  overflow: hidden;
+}
+
+#sliderContainerInner {
   height: 90vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #d9cfc1;
+  padding: 0 1vw;
 }
 </style>
