@@ -1,22 +1,24 @@
 <template>
   <div id="mainContainer">
-    <FeedbackBox :feedbackText="feedback"/>
-    <IngredientsArray @updateMessage="updateFeedback"/>
-    <h1 id="testText">hi some text is supposed to go here later</h1>
+    <div id="textContainer">
+      <FeedbackBox :feedbackText="feedback" />
+      <ResultsBox />
+    </div>
+    <IngredientsArray @updateMessage="updateFeedback" />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import IngredientsArray from './components/icons/IngredientsArray.vue';
-import FeedbackBox from './components/icons/FeedbackBox.vue';
+import { ref } from 'vue'
+import IngredientsArray from './components/icons/IngredientsArray.vue'
+import FeedbackBox from './components/icons/FeedbackBox.vue'
+import ResultsBox from './components/icons/ResultsBox.vue'
 
-const feedback = ref("");
+const feedback = ref('')
 function updateFeedback(message) {
-  console.log("feedback being updated: ", message);
-  feedback.value = message;
+  console.log('feedback being updated: ', message)
+  feedback.value = message
 }
-
 </script>
 
 <style scoped>
@@ -24,23 +26,18 @@ function updateFeedback(message) {
   display: flex;
   line-height: 1.5;
   height: 100vh;
-  width: 100%;
   box-sizing: border-box;
-  background-color: #3d2b03;
+  background-color: #0f0a00;
   display: flex;
   align-items: center;
 }
 
-
-#testDiv {
-  box-sizing: border-box;
-  border-radius: 1vw;
+#textContainer {
+  display: flex;
+  flex-direction: column;
   height: 90vh;
-  background-color: #e3c567;
-  color: white;
-}
-
-#testText {
-  color: white;
+  margin: 1vw;
+  width: 50vw;
+  align-items: center;
 }
 </style>

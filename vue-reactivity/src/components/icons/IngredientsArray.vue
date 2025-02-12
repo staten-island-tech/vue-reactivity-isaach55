@@ -31,7 +31,7 @@ const ingredients = reactive([
     message: 'this is going to be so dry are you making banana bread or mixing concrete',
   },
   {
-    name: 'Bananas',
+    name: 'Banana',
     min: 200,
     max: 600,
     moistureMultiplier: 0.5,
