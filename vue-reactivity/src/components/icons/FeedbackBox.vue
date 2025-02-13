@@ -1,11 +1,11 @@
 <template>
   <div id="feedbackContainer">
-    <h1>
+    <h2>
       Make some banana bread except I'm too lazy to provide a visual! You get friendly and
       constructive feedback here: :D
-    </h1>
+    </h2>
     <br />
-    <h2>Your most recent feedback: {{ feedbackText }}</h2>
+    <h3>Your most recent feedback: {{ feedbackText }}</h3>
   </div>
 </template>
 
@@ -23,6 +23,7 @@ const props = defineProps({ feedbackText: String })
   box-sizing: border-box;
   padding: 1vw;
   border-radius: 1vw;
+  display: flex;
   flex-direction: column;
   width: 100%;
 }

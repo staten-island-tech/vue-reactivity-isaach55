@@ -72,7 +72,7 @@ const ingredients = reactive([
     message: 'the sugar... why?',
   },
   {
-    name: 'Vanilla Extract',
+    name: 'Vanilla',
     min: 1,
     max: 15,
     moistureMultiplier: 2,

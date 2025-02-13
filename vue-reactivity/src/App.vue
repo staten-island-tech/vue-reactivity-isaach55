@@ -2,6 +2,7 @@
   <div id="mainContainer">
     <div id="textContainer">
       <FeedbackBox :feedbackText="feedback" />
+      <br>
       <ResultsBox />
     </div>
     <IngredientsArray @updateMessage="updateFeedback" />
@@ -36,8 +37,8 @@ function updateFeedback(message) {
   display: flex;
   flex-direction: column;
   height: 90vh;
-  margin: 1vw;
   width: 50vw;
   align-items: center;
+  margin: 0 2vw;
 }
 </style>
