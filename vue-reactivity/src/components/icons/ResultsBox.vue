@@ -4,7 +4,9 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import SliderComponent from './SliderComponent.vue'
+</script>
 
 <style scoped>
 #textContainer {

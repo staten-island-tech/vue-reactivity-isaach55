@@ -7,6 +7,7 @@
         :ingredient="ingredient"
         @updateMessage="forwardFeedback"
       />
+      <button id="bakeButton" @click="showResults">Bake banana bread</button>
     </div>
   </div>
 </template>
@@ -19,6 +20,8 @@ const emit = defineEmits()
 function forwardFeedback(message) {
   emit('updateMessage', message)
 }
+function showResults() {}
+
 const ingredients = reactive([
   {
     name: 'Flour',
@@ -125,5 +128,10 @@ sliders, interactive feedback?
   scrollbar-width: thin;
   scrollbar-color: #d9cfc1;
   padding: 0 1vw;
+}
+
+#bakeButton {
+  width: 100%;
+  margin: 0 0 2vh 0;
 }
 </style>

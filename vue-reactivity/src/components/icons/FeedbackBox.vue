@@ -5,7 +5,7 @@
       constructive feedback here: :D
     </h2>
     <br />
-    <h3>Your most recent feedback: {{ feedbackText }}</h3>
+    <h3>Latest feedback: {{ feedbackText }}</h3>
   </div>
 </template>
 
