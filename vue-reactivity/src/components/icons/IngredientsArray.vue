@@ -24,6 +24,17 @@ function showResults() {}
 
 const ingredients = reactive([
   {
+    name: 'Samantha',
+    min: 20,
+    max: 100,
+    moistureMultiplier: 0,
+    sweetMultiplier: 0,
+    oil: 0,
+    excessive: 1000,
+    message: '',
+    samanthaOpacity: 1,
+  },
+  {
     name: 'Flour',
     min: 100,
     max: 550,

@@ -1,6 +1,6 @@
 <template>
   <div class="sliderCard">
-    <label> {{ ingredient.name }}: {{ itemAmount }} grams</label>
+    <label class="label"> {{ ingredient.name }}: {{ itemAmount }} grams</label>
     <input
       class="slider"
       type="range"
@@ -45,6 +45,10 @@ function takeSliderValue() {
 
 .slider {
   align-self: center;
+  width: 100%;
+}
+
+.label {
   width: 100%;
 }
 </style>
