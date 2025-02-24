@@ -5,35 +5,56 @@
         v-for="ingredient in ingredients"
         :key="ingredient.name"
         :ingredient="ingredient"
+        v-model="ingredient.amount"
         @updateMessage="forwardFeedback"
       />
-      <button id="bakeButton" @click="showResults">Bake banana bread</button>
+      <button id="bakeButton" @click="showResults">Get Samantha rating</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, defineEmits } from 'vue'
+import { ref , defineEmits } from 'vue'
 import SliderComponent from './SliderComponent.vue'
+import ResultsBox from './ResultsBox.vue'
 
-const emit = defineEmits()
+const emit = defineEmits(['updateMessage', 'updateRating'])
 function forwardFeedback(message) {
   emit('updateMessage', message)
 }
-function showResults() {}
 
-const ingredients = reactive([
-  {
-    name: 'Samantha',
-    min: 20,
-    max: 100,
-    moistureMultiplier: 0,
-    sweetMultiplier: 0,
-    oil: 0,
-    excessive: 1000,
-    message: '',
-    samanthaOpacity: 1,
-  },
+const rating = ref(0)
+function showResults() {
+  let currentRating = 0
+  if (180 < calculateTotal(ingredients, 'sweetMultiplier') && calculateTotal(ingredients, 'sweetMultiplier') < 250) {
+    currentRating++
+  }
+  if (-20 < calculateTotal(ingredients, 'moistureMultiplier') && calculateTotal(ingredients, 'moistureMultiplier') < 50) {
+    currentRating++
+  }
+  if (75 < calculateTotal(ingredients, 'oil') && calculateTotal(ingredients, 'oil') < 130) {
+    currentRating++
+  }
+  if (6 < ingredients.value.find(ingredient => ingredient.name == 'Vanilla').amount && ingredients.value.find(ingredient => ingredient.name == 'Vanilla').amount < 13) {
+    currentRating++
+  }
+  if (75 < ingredients.value.find(ingredient => ingredient.name == 'Egg').amount && ingredients.value.find(ingredient => ingredient.name == 'Egg').amount < 125) {
+    currentRating++
+  }
+  rating.value = currentRating
+  console.log('Emitting rating:', rating.value)
+  emit('updateRating', rating.value)
+}
+
+function calculateTotal (ingredients, factor) {
+  let total = 0
+  ingredients.value.forEach(ingredient => {
+    total += ingredient.amount * ingredient[factor]
+  });
+  return total
+}
+
+const ingredients = ref([
   {
     name: 'Flour',
     min: 100,
@@ -42,6 +63,7 @@ const ingredients = reactive([
     sweetMultiplier: 0,
     oil: 0,
     excessive: 325,
+    amount: 100,
     message: 'this is going to be so dry are you making banana bread or mixing concrete',
   },
   {
@@ -52,8 +74,9 @@ const ingredients = reactive([
     sweetMultiplier: 0.25,
     oil: 0,
     excessive: 500,
+    amount: 200,
     message:
-      'is there even going to be any bread in this banana bread? this is banana with a side of bread',
+      'is there even going to be any bread in this banana bread?',
   },
   {
     name: 'Egg',
@@ -63,7 +86,8 @@ const ingredients = reactive([
     sweetMultiplier: 0,
     oil: 0,
     excessive: 125,
-    message: 'that many eggs? in this economy?',
+    amount: 50,
+    message: 'that much egg? in this economy?',
   },
   {
     name: 'Butter',
@@ -71,19 +95,21 @@ const ingredients = reactive([
     max: 180,
     moistureMultiplier: 0,
     sweetMultiplier: 0,
-    oil: 3,
+    oil: 1,
     excessive: 130,
+    amount: 40,
     message: 'your banana bread is going to be so oily the US military would drill in it',
   },
   {
     name: 'Sugar',
     min: 60,
-    max: 240,
+    max: 200,
     moistureMultiplier: -0.5,
     sweetMultiplier: 1,
     oil: 0,
     excessive: 140,
-    message: 'the sugar... why?',
+    amount: 60,
+    message: 'this amount of sugar would make my asian parents go comatose',
   },
   {
     name: 'Vanilla',
@@ -93,35 +119,11 @@ const ingredients = reactive([
     sweetMultiplier: 0,
     oil: 0,
     excessive: 12,
+    amount: 1,
     message: 'this is not a normal amount of vanilla.',
   },
 ])
 
-/*banana
-all p flour, bread flour? -> this is so dry are you making banana bread or mixing concrete
-egg -> that much egg? in this economy?
-vanilla -> thats a lot of vanilla relax
-sugar ->
-honey ->      }}} if sweetness > something -> erm thats kind of a lot of sugar ERM thats kind of a LOT of sugar ERM THATS A LOT OF SuGAR
-maple syrup ->
-butter / oil -> your banana bread is so oily the united states military would drill in it
-chocolate chips -> uhhh you got some banana in your chocolate bread thats more chocolate chips than samantha has hairs on her head
-cinnamon ->
-milk ->
-salt -> this is almost as salty as you would be if you had Samantha as a teammate
-baking powder -> put any more and this banana bread will be bigger than even samanthas forehead
-
-winnie holding a gun to your head name 5 things that you could have done better just hand over the banana bread already
-the only person that could make banana bread worse than this is samantha
-id rather take ap literature and composition than eat this banana bread
-
-THIS BANANA BREAD GETS 1-5 BIG BOOMS! BOOM BOOM BOOM BOOM BOOM
-
-Verdict:
-
-IDEAS:
-sliders, interactive feedback?
-*/
 </script>
 
 <style scoped>
@@ -137,12 +139,14 @@ sliders, interactive feedback?
   height: 90vh;
   overflow-y: scroll;
   scrollbar-width: thin;
-  scrollbar-color: #d9cfc1;
   padding: 0 1vw;
 }
 
 #bakeButton {
   width: 100%;
   margin: 0 0 2vh 0;
+  background-color: #ffd191;
+  border-radius: 0.5vw;
+  border-color: #ffd191;
 }
 </style>

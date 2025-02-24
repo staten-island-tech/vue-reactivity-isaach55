@@ -3,9 +3,10 @@
     <div id="textContainer">
       <FeedbackBox :feedbackText="feedback" />
       <br>
-      <ResultsBox />
+      <ResultsBox :rating="rating"/>
     </div>
-    <IngredientsArray @updateMessage="updateFeedback" />
+    <IngredientsArray @updateMessage="updateFeedback" @updateRating="updateRating"/>
+    <img src="" alt="">
   </div>
 </template>
 
@@ -16,9 +17,13 @@ import FeedbackBox from './components/icons/FeedbackBox.vue'
 import ResultsBox from './components/icons/ResultsBox.vue'
 
 const feedback = ref('')
+const rating = ref(0)
 function updateFeedback(message) {
-  console.log('feedback being updated: ', message)
   feedback.value = message
+}
+function updateRating(newRating) {
+  console.log('Received new rating:', newRating)
+  rating.value = newRating
 }
 </script>
 

@@ -19,7 +19,7 @@ import { defineProps, ref, defineEmits } from 'vue'
 
 const props = defineProps({ ingredient: Object })
 const emit = defineEmits(['updateMessage'])
-const itemAmount = ref(props.ingredient.min)
+const itemAmount = defineModel()
 if (props.ingredient.amount) {
   itemAmount.value = props.ingredient.amount
 }
@@ -27,7 +27,6 @@ const usedValue = ref(props.ingredient.min)
 function takeSliderValue() {
   usedValue.value = itemAmount.value
   if (usedValue.value > props.ingredient.excessive) {
-    console.log('Emitting feedback:', props.ingredient.message)
     emit('updateMessage', props.ingredient.message)
   }
 }
