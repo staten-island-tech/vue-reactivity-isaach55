@@ -36,6 +36,7 @@ function updateRating(newRating) {
   background-color: #0f0a00;
   display: flex;
   align-items: center;
+  color: black;
 }
 
 #textContainer {
